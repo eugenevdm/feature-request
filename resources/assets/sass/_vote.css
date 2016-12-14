@@ -1,0 +1,62 @@
+/*
+
+http://stackoverflow.com/questions/4274489/how-can-i-make-an-upvote-downvote-button
+
+background: url('http://i.stack.imgur.com/iqN2k.png');
+
+See 7972 of stackoverflow.css
+
+http://jsfiddle.net/9dLaG/13/
+
+ */
+
+.envelope-on, .envelope-off, .vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on, .comment-flag, .comment-flag-off, .comment-flag-on, .edited-yes, .feed-icon, .vote-accepted-off, .vote-accepted-on, .vote-accepted-bounty, .badge-earned-check, .delete-tag, .grippie, .expander-arrow-hide, .expander-arrow-show, .expander-arrow-small-hide, .expander-arrow-small-show, .anonymous-gravatar, .badge1, .badge2, .badge3 {
+    background-image: url("/css/img/sprites.png");
+    background-size: initial;
+    background-repeat: no-repeat;
+    overflow: hidden
+}
+
+.vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .vote-accepted-off, .vote-accepted-on {
+    display: block;
+    margin: 0 auto;
+    text-indent: -999em;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 2px
+}
+
+.vote-up-off, .vote-down-off, .vote-accepted-off, .star-off, .comment-up-off, .flag-off {
+    cursor: pointer
+}
+
+.vote-up-off, .vote-up-on, .vote-down-off, .vote-down-on, .star-on, .star-off, .comment-up-off, .comment-up-on, .comment-flag, .comment-flag-off, .comment-flag-on, .flag-off, .vote-accepted-off, .vote-accepted-on {
+    text-indent: -9999em;
+    font-size: 1px
+}
+
+.vote-up-off {
+    background-position: 0 -170px
+}
+
+.vote-up-on {
+    background-position: -40px -170px
+}
+
+.vote-down-off {
+    background-position: 0 -220px;
+    margin-bottom: 8px
+}
+
+.vote-down-on {
+    background-position: -40px -220px;
+    margin-bottom: 8px
+}
+
+.star-off {
+    background-position: 0 -120px
+}
+
+.star-on {
+    background-position: -40px -120px
+}

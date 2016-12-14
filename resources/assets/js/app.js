@@ -23,4 +23,12 @@ const app = new Vue({
     // }
 });
 
+$('.vote-up-off').click(function() {
+    $(this).toggleClass('vote-up-on');
+    $(".vote-down-on").addClass('vote-down-off').removeClass('vote-down-on');
+});
 
+$('.vote-down-off').click(function() {
+    $(this).toggleClass('vote-down-on');
+    $(".vote-up-on").addClass('vote-up-off').removeClass('vote-up-on');
+});

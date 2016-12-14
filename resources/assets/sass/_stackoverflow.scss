@@ -4568,9 +4568,9 @@ code {
 pre {
   margin-bottom: 1em;
   padding: 5px;
-  padding-bottom: 20px !ie7;
+  padding-bottom: 20px;
   width: auto;
-  width: 650px !ie7;
+  width: 650px;
   max-height: 600px;
   overflow: auto;
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
@@ -17462,8 +17462,7 @@ hr {
 
 .accept-rate {
   margin-left: 37px;
-  padding-top: 6px !ie
-  7;
+  padding-top: 6px;
   margin-top: 3px;
   margin-bottom: 6px
 }

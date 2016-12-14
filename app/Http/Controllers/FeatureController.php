@@ -31,7 +31,7 @@ class FeatureController extends Controller
         $input = request()->input();
         $feature = Feature::find($feature->id);
         $feature->update($input);
-        return redirect('features');
+        return redirect('feature');
     }
 
     public function index() {
