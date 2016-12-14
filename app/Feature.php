@@ -22,4 +22,16 @@ class Feature extends Model
         return $query->orderBy('active', 'desc')->orderBy('updated_at','desc');
     }
 
+    public function increaseVotes() {
+        $this->votes++;
+        $this->save();
+        return $this->votes;
+    }
+
+    public function decreaseVotes() {
+        $this->votes--;
+        $this->save();
+        return $this->votes;
+    }
+
 }

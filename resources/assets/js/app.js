@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * include Vue and Vue Resource. This gives a great starting point for
@@ -6,6 +5,8 @@
  */
 
 require('./bootstrap');
+
+import {ajax} from "jquery";
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -23,12 +24,33 @@ const app = new Vue({
     // }
 });
 
-$('.vote-up-off').click(function() {
+$('.vote-up-off').click(function () {
     $(this).toggleClass('vote-up-on');
     $(".vote-down-on").addClass('vote-down-off').removeClass('vote-down-on');
 });
 
-$('.vote-down-off').click(function() {
+$('.vote-down-off').click(function () {
     $(this).toggleClass('vote-down-on');
     $(".vote-up-on").addClass('vote-up-off').removeClass('vote-up-on');
+});
+
+$(document).ready(function () {
+    $('.vote-up-off').on('click', function () {
+        let data = $("#id").val();
+        ajax({
+            url: 'http://192.168.21.108:8000/upvote/' + data,
+        }).done(function(data) {
+            $('#votes').text(data);
+            console.log(data);
+        });
+    });
+    $('.vote-down-off').on('click', function () {
+        let data = $("#id").val();
+        ajax({
+            url: 'http://192.168.21.108:8000/downvote/' + data,
+        }).done(function(data) {
+            console.log(data)
+            $('#votes').text(data);
+        });
+    });
 });

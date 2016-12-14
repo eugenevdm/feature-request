@@ -21,3 +21,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('feature', 'FeatureController');
 
+Route::get('upvote/{id}', 'VotingController@upvote');
+Route::get('downvote/{id}', 'VotingController@downvote');
+
