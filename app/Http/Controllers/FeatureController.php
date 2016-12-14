@@ -34,4 +34,9 @@ class FeatureController extends Controller
         return redirect('features');
     }
 
+    public function index() {
+        $features = Feature::latest()->get();
+        return view('feature.index', compact('features'));
+    }
+
 }

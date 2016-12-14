@@ -21,7 +21,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">&nbsp;
                 <li><a href="{{ url('feature/create') }}">Add</a></li>
-                <li><a href="{{ url('features') }}">List</a></li>
+                <li><a href="{{ url('feature') }}">List</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
