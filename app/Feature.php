@@ -19,19 +19,23 @@ class Feature extends Model
 
     public function scopeLatest($query)
     {
-        return $query->orderBy('votes','desc')->orderBy('active', 'desc')->orderBy('updated_at','desc');
+        return $query->orderBy('active', 'desc')->orderBy('updated_at','desc');
     }
 
-    public function increaseVotes() {
-        $this->votes++;
-        $this->save();
-        return $this->votes;
+    public function getPopularAttribute() {
+        if ($this->votes > 5) return true;
     }
 
-    public function decreaseVotes() {
-        $this->votes--;
-        $this->save();
-        return $this->votes;
-    }
+//    public function increaseVotes() {
+//        $this->votes++;
+//        $this->save();
+//        return $this->votes;
+//    }
+//
+//    public function decreaseVotes() {
+//        $this->votes--;
+//        $this->save();
+//        return $this->votes;
+//    }
 
 }

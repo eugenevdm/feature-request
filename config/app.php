@@ -168,6 +168,7 @@ return [
          */
 
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
+        Nexmo\Laravel\NexmoServiceProvider::class,
 
         /*
          * Application Service Providers...

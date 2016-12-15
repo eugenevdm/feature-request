@@ -22,17 +22,14 @@ class FeatureController extends Controller
 
     public function show(Feature $feature) {
         JavaScript::put([
-            'upvote_url' => config('app.url') . ':8000/upvote/',
-            'downvote_url' => config('app.url') . ':8000/downvote/',
+            'upvote_url' => config('app.url') . '/upvote/',
+            'downvote_url' => config('app.url') . '/downvote/',
         ]);
         return view('feature.show', compact('feature'));
     }
 
     public function edit(Feature $feature) {
         $tags = Tag::orderBy('name')->pluck('name','id');
-        //dd($tags);
-//        dd ($feature->tags->pluck('id')->toArray());
-//        dd($feature->tags->pluck('name','id'));
         $button = "Update";
         return view('feature.edit', compact('feature', 'tags', 'button'));
     }
@@ -41,7 +38,6 @@ class FeatureController extends Controller
         $input = request()->input();
         $feature = Feature::find($feature->id);
         $feature->update($input);
-//        dd($input);
         $feature->tags()->sync($input['tag_list']);
         return redirect('feature');
     }
