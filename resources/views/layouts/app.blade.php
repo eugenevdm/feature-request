@@ -14,7 +14,7 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- My Styles -->
-    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />--}}
+    <link href="/css/all.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -33,13 +33,13 @@
 </div>
 
 <!-- https://github.com/laracasts/PHP-Vars-To-Js-Transformer -->
-@include ('javascript_variables_footer')
+@include ('js_vars_transformer')
 
 <!-- Scripts -->
 <script src="/js/app.js"></script>
 
 <!-- My Scripts -->
-{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>--}}
+<script src="/js/all.js"></script>
 
 @yield('footer')
 

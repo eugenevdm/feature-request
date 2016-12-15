@@ -19,7 +19,7 @@ class Feature extends Model
 
     public function scopeLatest($query)
     {
-        return $query->orderBy('votes')->orderBy('active', 'desc')->orderBy('updated_at','desc');
+        return $query->orderBy('votes','desc')->orderBy('active', 'desc')->orderBy('updated_at','desc');
     }
 
     public function increaseVotes() {
