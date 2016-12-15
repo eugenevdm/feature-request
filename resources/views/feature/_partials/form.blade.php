@@ -4,14 +4,35 @@
     <div class="col-md-8">
 
         <input id="name" type="text" class="form-control" name="name"
-                value="{{ $feature->name or old('name') }}" required autofocus>
+               value="{{ $feature->name or old('name') }}" required autofocus>
 
-            @if ($errors->has('name'))
-                    <span class="help-block">
+        @if ($errors->has('name'))
+            <span class="help-block">
                             <strong>{{ $errors->first('name') }}</strong>
             </span>
         @endif
 
+    </div>
+</div>
+
+<!-- Tags -->
+<div class="form-group{{ $errors->has('tags') ? ' has-error' : '' }}">
+    <label for="url" class="col-md-2 control-label">Tags</label>
+    <div class="col-md-8">
+        <select name="tag_list[]" id="tag_list" class="form-control"
+                multiple title="">
+            @foreach($tags as $key=>$value)
+                <option value="{{ $key }}"
+                        {{ in_array($key, array_values($feature->tags->pluck('id')->toArray())) ? 'selected' : '' }}
+                >
+                    {{ $value }}</option>
+            @endforeach
+        </select>
+        @if ($errors->has('tags'))
+            <span class="help-block">
+                <strong>{{ $errors->first('tags') }}</strong>
+            </span>
+        @endif
     </div>
 </div>
 
@@ -51,7 +72,8 @@
 
     <div class="col-md-8">
         <input type="hidden" id="active" name="active" value="0">
-        <input id="active" type="checkbox" name="active" value="1" {{ ($feature->active ?? "active" or old('active') or "") ? 'checked' : ""}}>
+        <input id="active" type="checkbox" name="active"
+               value="1" {{ ($feature->active ?? "active" or old('active') or "") ? 'checked' : ""}}>
     </div>
 
 </div>
@@ -63,3 +85,9 @@
         </button>
     </div>
 </div>
+
+@section('footer')
+    <script>
+        $('#tag_list').select2();
+    </script>
+@endsection

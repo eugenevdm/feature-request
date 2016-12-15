@@ -16,47 +16,45 @@
                         </strong></div>
 
                     <div class="panel-body">
+
                         <table class="table">
+
                             <tr>
-                                <td><span class="vote-up-off"> </span>
-                                    <span class="vote-down-off"></span>
+                                <td align="right"><strong>Description</strong></td>
+                                <td colspan="2">{{ $feature->description }}</td>
+                            </tr>
+                            <tr>
+                                <td align="right"><strong>Updated</strong></td>
+                                <td>{{ $feature->updated_at->diffForHumans() }}</td>
+                            </tr>
 
+                            <tr>
+                                <td align="right"><strong>Completed</strong></td>
+                                <td colspan="2">
+                                    <input type="checkbox" {{ $feature->active ? 'checked' : '' }} title="">
                                 </td>
+                            </tr>
+
+                            <tr>
+                                <td align="right"><strong>Votes</strong></td>
                                 <td>
-                                    <table class="table">
+                                    <span id="votes">{{ $feature->votes }}</span>
+                                    <input type="hidden" id="id" value="{{ $feature->id }}">
 
-                                        <tr>
-                                            <td>Description</td>
-                                            <td>{{ $feature->description }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Updated</td>
-                                            <td>{{ $feature->updated_at->diffForHumans() }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Completed</td>
-                                            <td><input type="checkbox" {{ $feature->active ? 'checked' : '' }} title="">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Vote</td>
-                                            <td>
-                                                <span id="votes">{{ $feature->votes }}</span>
-                                                <input type="hidden" id="id" value="{{ $feature->id }}">
-
-                                            </td>
-                                        </tr>
-
-                                    </table>
                                 </td>
+
+                                <td>
+                                    <span class="vote-up-off"></span>
+                                    <span class="vote-down-off"></span>
+                                </td>
+
+                            </tr>
+
                         </table>
 
                     </div>
                 </div>
             </div>
-
 
         </div>
 

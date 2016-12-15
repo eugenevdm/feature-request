@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Feature;
+use App\Tag;
 
 class FeatureController extends Controller
 {
@@ -23,14 +24,20 @@ class FeatureController extends Controller
     }
 
     public function edit(Feature $feature) {
+        $tags = Tag::orderBy('name')->pluck('name','id');
+        //dd($tags);
+//        dd ($feature->tags->pluck('id')->toArray());
+//        dd($feature->tags->pluck('name','id'));
         $button = "Update";
-        return view('feature.edit', compact('feature', 'button'));
+        return view('feature.edit', compact('feature', 'tags', 'button'));
     }
 
     public function update(Feature $feature) {
         $input = request()->input();
         $feature = Feature::find($feature->id);
         $feature->update($input);
+//        dd($input);
+        $feature->tags()->sync($input['tag_list']);
         return redirect('feature');
     }
 

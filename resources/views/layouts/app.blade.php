@@ -14,6 +14,10 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+    <!-- My Styles -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -27,10 +31,16 @@
     @include('nav')
 
     @yield('content')
+
 </div>
 
 <!-- Scripts -->
 <script src="/js/app.js"></script>
+
+<!-- My Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+@yield('footer')
 
 </body>
 </html>
