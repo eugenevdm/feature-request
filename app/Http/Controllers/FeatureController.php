@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Feature;
 use App\Tag;
+use JavaScript;
 
 class FeatureController extends Controller
 {
@@ -20,6 +21,10 @@ class FeatureController extends Controller
     }
 
     public function show(Feature $feature) {
+        JavaScript::put([
+            'upvote_url' => config('app.url') . ':8000/upvote/',
+            'downvote_url' => config('app.url') . ':8000/downvote/',
+        ]);
         return view('feature.show', compact('feature'));
     }
 

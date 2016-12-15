@@ -8,15 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-{{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
     <title>@yield('title', 'Feature Requests')</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- My Styles -->
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    {{--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />--}}
 
     <!-- Scripts -->
     <script>
@@ -34,11 +32,14 @@
 
 </div>
 
+<!-- https://github.com/laracasts/PHP-Vars-To-Js-Transformer -->
+@include ('javascript_variables_footer')
+
 <!-- Scripts -->
 <script src="/js/app.js"></script>
 
 <!-- My Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>--}}
 
 @yield('footer')
 

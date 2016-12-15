@@ -16,6 +16,7 @@
                             <tr>
                                 <th>Feature</th>
                                 <th>Tags</th>
+                                <th>Votes</th>
                                 <th>Updated</th>
                                 <th></th>
                             </tr>
@@ -25,12 +26,15 @@
                                     <td>
                                         @if (!$feature->active)<strike>@endif
                                             <a href="{{ url('feature', $feature->id) }}">{{ $feature->name }}</a>
-                                            @if ($feature->active)<strike>@endif
+                                            @if ($feature->active)</strike>@endif
                                     </td>
                                     <td>
                                         @foreach($feature->tags as $tag)
                                             <span class="label label-default {{ $tag->name }}">{{ $tag->name }}</span>
                                         @endforeach
+                                    </td>
+                                    <td>
+                                        {{ $feature->votes }}
                                     </td>
                                     <td>
                                         {{ $feature->updated_at->diffForHumans() }}

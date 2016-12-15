@@ -38,7 +38,7 @@ $(document).ready(function () {
     $('.vote-up-off').on('click', function () {
         let data = $("#id").val();
         ajax({
-            url: 'http://192.168.21.108:8000/upvote/' + data,
+            url: upvote_url + data,
         }).done(function(data) {
             $('#votes').text(data);
             console.log(data);
@@ -47,9 +47,9 @@ $(document).ready(function () {
     $('.vote-down-off').on('click', function () {
         let data = $("#id").val();
         ajax({
-            url: 'http://192.168.21.108:8000/downvote/' + data,
+            url: downvote_url + data,
         }).done(function(data) {
-            console.log(data)
+            console.log(data);
             $('#votes').text(data);
         });
     });

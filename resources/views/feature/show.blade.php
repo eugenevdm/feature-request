@@ -38,7 +38,7 @@
                             <tr>
                                 <td align="right"><strong>Votes</strong></td>
                                 <td>
-                                    <span id="votes">{{ $feature->votes }}</span>
+                                    <span id="votes">{{ $feature->votes ?? 'No votes yet!' }}</span>
                                     <input type="hidden" id="id" value="{{ $feature->id }}">
 
                                 </td>
@@ -59,4 +59,5 @@
         </div>
 
     </div>
+
 @endsection
