@@ -16,6 +16,24 @@
     <!-- My Styles -->
     <link href="/css/all.css" rel="stylesheet">
 
+    <!-- My Scripts -->
+    <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+
+    <script>
+
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('2c687811e8912048037b', {
+            encrypted: true
+        });
+
+        var channel = pusher.subscribe('order');
+        channel.bind('PopularFeature', function(data) {
+            alert(data.message);
+        });
+    </script>
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -42,6 +60,19 @@
 <script src="/js/all.js"></script>
 
 @yield('footer')
+
+<script>
+    Echo.private('order.')
+        .listen('PopularFeature', (e) => {
+            console.log("hello");
+            console.log(e.update);
+        });
+
+    Echo.channel('order')
+        .listen('PopularFeature', (e) => {
+            console.log(e.order.name);
+        });
+</script>
 
 </body>
 </html>

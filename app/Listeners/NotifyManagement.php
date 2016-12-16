@@ -24,6 +24,7 @@ class NotifyManagement
      */
     public function handle(PopularFeature $event)
     {
+
         Log::info('event listener handle');
     }
 }

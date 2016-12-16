@@ -44,7 +44,14 @@ class PopularFeature extends Notification
     public function toNexmo($notifiable)
     {
         return (new NexmoMessage)
-            ->content(config('app.name') . ": '" . $this->feature->name . "' is very popular!");
+            ->content(
+                config('app.name')
+                . ": '"
+                . $this->feature->name
+                . "' is very popular with "
+                . $this->feature->votes
+                . ' votes.'
+            );
     }
 
     /**

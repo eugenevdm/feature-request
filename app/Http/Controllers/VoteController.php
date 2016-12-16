@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Log;
 use App\Feature;
 use App\Events\PopularFeature;
 use App\Repositories\FeatureRepository;
@@ -29,7 +30,7 @@ class VoteController extends Controller
         $feature->votes++;
         $feature->save();
         if ($feature->popular) event(new PopularFeature($feature));
-        if ($feature->popular) $this->notify(new \App\Notifications\PopularFeature($feature));
+//        if ($feature->popular) $this->notify(new \App\Notifications\PopularFeature($feature));
 //        if ($feature->popular && $feature->management_notified) event(new PopularFeature($feature));
         return $feature->votes;
     }

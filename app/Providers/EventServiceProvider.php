@@ -15,6 +15,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\PopularFeature' => [
             'App\Listeners\NotifyManagement',
         ],
+        'Illuminate\Notifications\Events\NotificationSent' => [
+            'App\Listeners\LogBalance',
+        ],
 
     ];
 
